@@ -9,39 +9,44 @@ todos.forEach(function(todoTitle) {
 
 
 
-function toUpper(arr) {
-  let newArr = [];
-  arr.forEach(function(item) {
-    newArr.push(item.toUpperCase());
-  })
-  console.log(newArr);
+function addTodo() {
+  let textbox = document.getElementById('todo-title');
+  let title = textbox.value;
+  todos.push(title);
 }
 
-toUpper(['hello', 'world']);
-
-function arrayDouble(arr) {
-  let newArr = [];
-  
-  arr.forEach(function(item) {
-    newArr.push(item);
-    newArr.push(item);
-  })
-  console.log(newArr);
+function todoDone () {
+  let done = document.getElementById('todo-button');
+  done.innerText = 'done';
 }
 
-arrayDouble(['bark', 'meow']);
+let count = 0;
 
-
-function arraySum(numsArr) {
-  let total = 0;
-  numsArr.forEach(function (nums) {
-    total += nums
-  })
-  console.log(total)
+function incrementer () {
+  count = count + 1;
+  updateCount();
 }
 
-arraySum([1,2,3]);
-arraySum([5, -2, 7, 0]);
+function decrementor () {
+  count = count - 1;
+  updateCount();
+}
+
+function updateCount() {
+  let counter = document.getElementById('counter');
+  counter.innerText = count;
+}
+
+function displayTitle() {
+  let textbox = document.getElementById('todo-title');
+  let title = textbox.value;
+
+  let div = document.createElement('div');
+  div.innerText = title;
+  document.body.appendChild(div);
+}
+
+
 
 
 
